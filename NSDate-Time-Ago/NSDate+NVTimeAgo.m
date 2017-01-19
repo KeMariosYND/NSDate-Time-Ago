@@ -78,11 +78,11 @@
         return [self formatAsLastWeek];
 
     
-    // < Last 30 days = "March 30 at 1:14 PM"
+    // < Last 30 days = "March 30, 2011 at 1:14 PM"
     if([self isLastMonth:secondsSince])
         return [self formatAsLastMonth];
     
-    // < 1 year = "September 15"
+    // < 1 year = "September 15, 2011"
     if([self isLastYear:secondsSince])
         return [self formatAsLastYear];
     
@@ -235,26 +235,26 @@
 }
 
 
-// < Last 30 days = "March 30 at 1:14 PM"
+// < Last 30 days = "March 30, 2011 at 1:14 PM"
 - (NSString *)formatAsLastMonth
 {
     //Create date formatter
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMMM d 'at' h:mm a"];
+    [dateFormatter setDateFormat:@"MMMM d, yyyy 'at' h:mm a"];
     return [dateFormatter stringFromDate:self];
 }
 
 
-// < 1 year = "September 15"
+// < 1 year = "September 15, 2011"
 - (NSString *)formatAsLastYear
 {
     //Create date formatter
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMMM d"];
+    [dateFormatter setDateFormat:@"MMMM d, yyyy"];
     return [dateFormatter stringFromDate:self];
 }
 
